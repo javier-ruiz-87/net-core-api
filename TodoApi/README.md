@@ -3,34 +3,50 @@ APIs with .Net Core C#
 
 ## Run API REST
 >cd TodoApi
+
 >dotnet run
+
 Open Postman or Browser
 
 https://localhost:5001/WeatherForecast
+
 https://localhost:5001/WeatherForecast/1
 
 Postman
-Add:
+
+#### Add:
+
 https://localhost:5001/api/TodoItems
+
 Method: POST
+
 {
   "name":"walk dog1",
   "isComplete":true
 }
-Response: 
+
+Response:
+
 Headers -> Location: https://localhost:5001/api/TodoItems/1
+
 Status: 201 Created
 
-List:
+#### List:
+
 https://localhost:5001/api/TodoItems
+
 Method: GET
 
-Response: 
+Response:
+
 Status: 200 OK
 
-Update:
+#### Update:
+
 https://localhost:5001/api/TodoItems/1
+
 Method: PUT
+
 {
   "id":2,
   "name":"walk dog_edit",
@@ -38,11 +54,15 @@ Method: PUT
 }
 
 Response:
+
 Status: 204 No Content
 
-Delete:
+#### Delete:
+
 https://localhost:5001/api/TodoItems/1
+
 Method: DELETE
 
 Response:
+
 Status: 204 No Content
