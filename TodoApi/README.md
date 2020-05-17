@@ -1,5 +1,5 @@
 # net-core-api
-APIs with .Net Core 3.1 C#
+APIs with .Net Core C#
 
 ## Run API REST
 >cd TodoApi
@@ -46,7 +46,3 @@ Method: DELETE
 
 Response:
 Status: 204 No Content
-
-## Tests
->cd TodoApi.Tests
->dotnet test
