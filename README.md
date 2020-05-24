@@ -67,6 +67,18 @@ Response:
 
 Status: 204 No Content
 
+
+
+## Call APIs with simple CRUD web
+
+>cd TodoApi
+
+>dotnet run
+
+open Browser
+https://localhost:5001/
+
+
 ## Tests
 >cd TodoApi.Tests
 
