@@ -83,3 +83,12 @@ https://localhost:5001/
 >cd TodoApi.Tests
 
 >dotnet test
+
+## Swagger
+>cd TodoApi
+
+>dotnet run
+
+open Browser
+https://localhost:5001/swagger
+https://localhost:5001/swagger/v1/swagger.json

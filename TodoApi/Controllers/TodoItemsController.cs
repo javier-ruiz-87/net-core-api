@@ -10,6 +10,7 @@ using TodoApi.Models;
 namespace TodoApi.Controllers
 {
     //[controller] is the name of the controller /TodoItems
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class TodoItemsController : ControllerBase
@@ -22,6 +23,9 @@ namespace TodoApi.Controllers
         }
 
         // GET: api/TodoItems
+        /// <summary>
+        /// List all the items.
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodoItems()
         {
@@ -31,6 +35,9 @@ namespace TodoApi.Controllers
 
         // GET: api/TodoItems/5
         //ActionResult<T> automatically serializes the object to JSON and write it. Response code: 200
+        /// <summary>
+        /// Show a item.
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItemDTO>> GetTodoItem(long id)
         {
@@ -48,6 +55,9 @@ namespace TodoApi.Controllers
         // PUT: api/TodoItems/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Update a TodoItem.
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTodoItem(long id, TodoItemDTO todoItemDTO)
         {
@@ -83,7 +93,27 @@ namespace TodoApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         //Response code: 201 Created
+        /// <summary>
+        /// Creates a TodoItem.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///        "id": 1,
+        ///        "name": "Item1",
+        ///        "isComplete": true
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="todoItemDTO"></param>
+        /// <returns>A newly created TodoItem</returns>
+        /// <response code="201">Returns the newly created item</response>
+        /// <response code="400">If the item is null</response>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<TodoItemDTO>> CreateTodoItem(TodoItemDTO todoItemDTO)
         {
             //DTOToItem
@@ -96,6 +126,10 @@ namespace TodoApi.Controllers
         }
 
         // DELETE: api/TodoItems/5
+        /// <summary>
+        /// Deletes a specific TodoItem.
+        /// </summary>
+        /// <param name="id"></param> 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteTodoItem(long id)
         {
